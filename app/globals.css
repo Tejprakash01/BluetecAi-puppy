@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import "@fontsource-variable/figtree/index.css";
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/shantell-sans/full.css";
+
+@import "./styles/base.css" layer(components);
+@import "./styles/chrome.css" layer(components);
+@import "./styles/home.css" layer(components);
+@import "./styles/pages.css" layer(components);
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens (Tailwind v4 theme) — values taken from the brand    */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-hand: "Shantell Sans Variable", ui-rounded, "Comic Sans MS", cursive;
+
+  --color-toffee: #c2622b;
+  --color-toffee-deep: #a24a1a;
+  --color-toffee-ink: #8e3f15;
+  --color-honey: #f2be6b;
+  --color-honey-soft: #fbe3b4;
+  --color-cocoa: #2a170e;
+  --color-cocoa-soft: #5a3a28;
+  --color-milk: #fffdf8;
+  --color-sky: #bfddf5;
+  --color-sky-deep: #2f6e9e;
+  --color-blush: #f9cdbf;
+
+  --ease-pounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.7, 0, 0.2, 1);
+}
