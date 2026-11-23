@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
+import { responsive } from "@/lib/img";
 
 export type Slide = { src: string; alt: string; kind?: "image" | "video"; poster?: string; caption?: string };
 
@@ -84,7 +85,7 @@ export function Lightbox({
             <video key={s.src} src={s.src} poster={s.poster} controls autoPlay playsInline aria-label={s.alt} />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={s.src} src={s.src} alt={s.alt} />
+            <img key={s.src} {...responsive(s.src, "100vw")} alt={s.alt} />
           ))}
       </div>
       <div className="flex items-center justify-center gap-6 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Teddy } from "@/components/teddy/Teddy";
 import { cover, focal, puppies, type Puppy } from "@/lib/data/puppies";
 import { site } from "@/lib/data/site";
+import { responsive } from "@/lib/img";
 
 const SEATS = [
   { x: "9%", w: "8.6rem", peek: 0.62, tilt: "-5deg" },
@@ -122,7 +123,7 @@ export function Hero() {
                 <Link className="tp-lineup__pup" data-state={state[i]} aria-label={`Meet ${label(p)}, ${p.breed}`} href={`/puppies/${p.slug}`}>
                   <span className="tp-lineup__photo">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={c.u} alt={c.alt} style={{ objectPosition: focal(c), backgroundColor: c.c }} />
+                    <img {...responsive(c.u, "11rem", 384)} alt={c.alt} style={{ objectPosition: focal(c), backgroundColor: c.c }} />
                   </span>
                 </Link>
               </li>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Heart } from "@/components/icons";
 import { Teddy } from "@/components/teddy/Teddy";
 import { gonePups } from "@/lib/data/gone";
+import { responsive } from "@/lib/img";
 
 export const metadata: Metadata = {
   title: "Gone home",
@@ -44,7 +45,7 @@ export default function GoneHomePage() {
                 <span className="tp-ticket__main">
                   <span className="tp-ticket__photo">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={g.image} alt={g.alt} loading="lazy" style={{ objectPosition: g.focal, backgroundColor: "#f8e8e8" }} />
+                    <img {...responsive(g.image, "7rem", 384)} alt={g.alt} loading="lazy" style={{ objectPosition: g.focal, backgroundColor: "#f8e8e8" }} />
                   </span>
                   <span className="tp-ticket__body">
                     <span className="font-scrawl tp-ticket__kicker">one ticket home</span>

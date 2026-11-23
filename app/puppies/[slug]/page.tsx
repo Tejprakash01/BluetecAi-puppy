@@ -9,6 +9,7 @@ import { Teddy } from "@/components/teddy/Teddy";
 import { gonePups } from "@/lib/data/gone";
 import { allSlugs, cover, findAnyPuppy, focal, puppies, whereLabel, type Puppy } from "@/lib/data/puppies";
 import { site } from "@/lib/data/site";
+import { responsive } from "@/lib/img";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => allSlugs().map((slug) => ({ slug }));
@@ -59,7 +60,7 @@ function Neighbours({ prev, next }: { prev: { slug: string; name: string; img: s
         >
           <span className="relative h-24 w-20 shrink-0 overflow-hidden rounded-[999px_999px_0.6rem_0.6rem] border-[3px] border-cocoa bg-honey-soft">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={n.img} alt={n.alt} loading="lazy" className="absolute inset-0 size-full object-cover" style={{ objectPosition: n.focal }} />
+            <img {...responsive(n.img, "5rem", 384)} alt={n.alt} loading="lazy" className="absolute inset-0 size-full object-cover" style={{ objectPosition: n.focal }} />
           </span>
           <span>
             <span className="font-scrawl block text-sm text-cocoa-soft">{n.kicker}</span>

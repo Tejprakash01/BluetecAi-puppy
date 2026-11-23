@@ -5,6 +5,11 @@ const ASSET_ORIGIN = process.env.ASSET_ORIGIN || "https://puppy.instabizweb.com"
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  images: {
+    // photos are served resized as AVIF/WebP via /_next/image (see lib/img.ts)
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+  },
   async rewrites() {
     return {
       // Only used when a file is NOT in /public (e.g. before `npm run assets`

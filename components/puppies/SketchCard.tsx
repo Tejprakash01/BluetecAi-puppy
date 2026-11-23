@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PAW_PATH } from "@/components/icons";
 import { blobPath, hash, seeded, svgMask } from "@/lib/random";
+import { responsive } from "@/lib/img";
 
 /**
  * A puppy drawn into Teddy's sketchbook: a watercolour wash, a wobbly blob-masked photo,
@@ -62,7 +63,7 @@ export function SketchCard({
         </svg>
         <span className="tp-sketch__photo" style={{ maskImage: mask, WebkitMaskImage: mask }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image} alt="" loading="lazy" style={{ objectPosition: focal, backgroundColor: bg }} />
+          <img {...responsive(image, small ? "9rem" : "(min-width: 1024px) 18rem, 46vw", small ? 384 : 640)} alt="" loading="lazy" style={{ objectPosition: focal, backgroundColor: bg }} />
         </span>
         <svg aria-hidden="true" viewBox="0 0 100 100" className="tp-sketch__ink">
           <path d={outline} pathLength={1} className="tp-sketch__line" />

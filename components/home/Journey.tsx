@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Teddy } from "@/components/teddy/Teddy";
 import { PAW_PATH } from "@/components/icons";
 import { site, showroom } from "@/lib/data/site";
+import { opt, responsive } from "@/lib/img";
 
 const STEPS = [
   { title: "Choose your breed", text: "Select your preferred breed or tell us what you're looking for. We'll guide you based on availability and your lifestyle." },
@@ -141,7 +142,7 @@ export function Journey() {
                     {showroom.photos.map((ph) => (
                       <span key={ph.src} className="tp-snaps__one">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={ph.src} alt={ph.alt} loading="lazy" />
+                        <img {...responsive(ph.src, "6rem", 256)} alt={ph.alt} loading="lazy" />
                       </span>
                     ))}
                   </div>
@@ -151,7 +152,7 @@ export function Journey() {
                     <video
                       ref={videoRef}
                       src={showroom.video}
-                      poster={showroom.photos[0].src}
+                      poster={opt(showroom.photos[0].src, 384)}
                       muted
                       loop
                       playsInline

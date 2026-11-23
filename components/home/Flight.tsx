@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef } from "react";
 import { cover, puppies } from "@/lib/data/puppies";
+import { opt } from "@/lib/img";
 
 /**
  * A little plane (with a puppy in the porthole) flying Korea → Dubai.
@@ -74,7 +75,7 @@ export function Flight() {
             <path d="M206 64 C215 67 221 73 224 80" className="tp-flight__line" />
           </g>
           <g transform="translate(10 2)">
-            <image href={pup.u} x="-25" y="-25" width="50" height="50" clipPath={`url(#${clip})`} preserveAspectRatio="xMidYMid slice" />
+            <image href={opt(pup.u, 128)} x="-25" y="-25" width="50" height="50" clipPath={`url(#${clip})`} preserveAspectRatio="xMidYMid slice" />
             <circle r="25" className="tp-flight__porthole" />
           </g>
         </g>

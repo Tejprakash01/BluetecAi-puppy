@@ -3,6 +3,7 @@ import { Skyline } from "@/components/icons";
 import { Teddy } from "@/components/teddy/Teddy";
 import { showroom } from "@/lib/data/site";
 import { Flight } from "./Flight";
+import { responsive } from "@/lib/img";
 
 /** "Two ways to meet your puppy" — a signpost pointing to the showroom and to imports. */
 export function TwoWays() {
@@ -28,7 +29,7 @@ export function TwoWays() {
               <figure className="tp-window">
                 <span className="tp-window__glass">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={showroom.photos[0].src} alt={showroom.photos[0].alt} loading="lazy" />
+                  <img {...responsive(showroom.photos[0].src, "12rem", 384)} alt={showroom.photos[0].alt} loading="lazy" />
                 </span>
                 <figcaption className="font-scrawl">In our showroom</figcaption>
               </figure>

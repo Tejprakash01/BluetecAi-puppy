@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Paw } from "@/components/icons";
 import { Teddy } from "@/components/teddy/Teddy";
 import { cover, DOOR_COLORS, doorMeta, focal, puppies } from "@/lib/data/puppies";
+import { responsive } from "@/lib/img";
 
 /**
  * "Meet the pups" — a hallway of doors, one per puppy.
@@ -157,7 +158,7 @@ export function MeetThePups() {
                       <span className="tp-door__frame">
                         <span className="tp-door__room">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={c.u} alt={c.alt} loading="lazy" style={{ objectPosition: focal(c), backgroundColor: c.c }} />
+                          <img {...responsive(c.u, "16rem", 640)} alt={c.alt} loading="lazy" style={{ objectPosition: focal(c), backgroundColor: c.c }} />
                         </span>
                         <span aria-hidden="true" className="tp-door__way">
                           <span className="tp-door__leaf">

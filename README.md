@@ -4,7 +4,7 @@ A full clone of **[puppy.instabizweb.com](https://puppy.instabizweb.com/)**: an 
 
 > Built as a front-end assignment. All brand copy, puppy photos and videos belong to the original site and are used for educational purposes only. The code is my own re-implementation.
 
-**Live demo:** _add your Vercel URL here_
+**Live demo:** https://bluetec-ai-puppy.vercel.app · **Repo:** https://github.com/Tejprakash01/BluetecAi-puppy
 
 ---
 
@@ -37,6 +37,7 @@ Site-wide features:
 - **Tailwind CSS v4** for layout utilities and design tokens (`@theme`), plus hand-written component CSS in `app/styles/*`
 - **Lenis** for smooth scrolling
 - **Fontsource** variable fonts, self-hosted: Fraunces (with its SOFT, WONK and opsz axes), Figtree and Shantell Sans
+- **Responsive images** through Next's optimizer (`/_next/image`): every photo is served resized as AVIF/WebP with `srcset`/`sizes` (`lib/img.ts`).
 - No animation library. Everything is CSS transitions/keyframes, SMIL `<animateTransform>` for the mascot's legs, and small `requestAnimationFrame` scroll handlers.
 
 ## Project structure

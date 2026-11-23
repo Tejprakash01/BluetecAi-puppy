@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Teddy } from "@/components/teddy/Teddy";
 import { cover, puppies } from "@/lib/data/puppies";
 import { site } from "@/lib/data/site";
+import { responsive } from "@/lib/img";
 
 /** Final call to action: the front door swings open to reveal a puppy waiting inside. */
 export function WelcomeHome() {
@@ -49,7 +50,7 @@ export function WelcomeHome() {
         <div className="tp-house__doorway">
           <span className="tp-house__inside">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={max.u} alt={`${puppies[0].displayName}, waiting inside`} loading="lazy" />
+            <img {...responsive(max.u, "12rem", 384)} alt={`${puppies[0].displayName}, waiting inside`} loading="lazy" />
           </span>
           <span aria-hidden="true" className="tp-house__door">
             <span className="tp-house__peep" />

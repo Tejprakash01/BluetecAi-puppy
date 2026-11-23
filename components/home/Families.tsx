@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Teddy } from "@/components/teddy/Teddy";
 import { Lightbox } from "@/components/ui/Lightbox";
 import { familyPhotos, featuredFamilyPhotos, testimonial, type FamilyPhoto } from "@/lib/data/families";
+import { responsive } from "@/lib/img";
 
 export function Polaroid({ photo, i }: { photo: FamilyPhoto; i: number }) {
   const tapes = photo.tapePos === "corners" ? ["tl", "tr"] : [photo.tapePos];
@@ -15,7 +16,7 @@ export function Polaroid({ photo, i }: { photo: FamilyPhoto; i: number }) {
       ))}
       <span className="tp-polaroid__photo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={photo.src} alt="A happy TeddyPups family with their new puppy" width={photo.width} height={photo.height} loading="lazy" />
+        <img {...responsive(photo.src, "(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 46vw", 828)} alt="A happy TeddyPups family with their new puppy" width={photo.width} height={photo.height} loading="lazy" />
       </span>
       <span className="tp-polaroid__caption font-scrawl">{photo.caption}</span>
     </span>

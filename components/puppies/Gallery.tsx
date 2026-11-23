@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Lightbox } from "@/components/ui/Lightbox";
 import { focal, type Media } from "@/lib/data/puppies";
+import { opt, responsive } from "@/lib/img";
 
 /** Storybook gallery: big "page" with prev/next, a strip of thumbnails, and a full-screen viewer. */
 export function Gallery({ media, name }: { media: Media[]; name: string }) {
@@ -21,7 +22,7 @@ export function Gallery({ media, name }: { media: Media[]; name: string }) {
             key={m.u}
             className="tp-storypage__media"
             src={m.u}
-            poster={m.p}
+            poster={m.p ? opt(m.p, 828) : undefined}
             controls
             playsInline
             loop
@@ -31,7 +32,7 @@ export function Gallery({ media, name }: { media: Media[]; name: string }) {
         ) : (
           <button type="button" className="absolute inset-0 block size-full" aria-label={`Open ${name}, photo ${i + 1} of ${n} full screen`} onClick={() => setViewer(i)}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img key={m.u} className="tp-storypage__media" src={m.u} alt={m.alt} style={{ objectPosition: focal(m), backgroundColor: m.c }} />
+            <img key={m.u} className="tp-storypage__media" {...responsive(m.u, "(min-width: 1024px) 55vw, 95vw")} alt={m.alt} style={{ objectPosition: focal(m), backgroundColor: m.c }} />
           </button>
         )}
         {n > 1 && (
@@ -63,7 +64,7 @@ export function Gallery({ media, name }: { media: Media[]; name: string }) {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={x.k === "video" ? x.p : x.u}
+                  {...responsive((x.k === "video" ? x.p : x.u) as string, "6rem", 256)}
                   alt=""
                   loading="lazy"
                   className="absolute inset-0 size-full object-cover"
@@ -77,7 +78,7 @@ export function Gallery({ media, name }: { media: Media[]; name: string }) {
       )}
       <Lightbox
         label={`${name} photos`}
-        slides={media.map((x) => ({ src: x.u, alt: x.alt, kind: x.k, poster: x.p }))}
+        slides={media.map((x) => ({ src: x.u, alt: x.alt, kind: x.k, poster: x.p ? opt(x.p, 1080) : undefined }))}
         index={viewer}
         onIndex={(j) => {
           setViewer(j);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LetterForm } from "@/components/forms/LetterForm";
 import { Paw, Skyline } from "@/components/icons";
 import { showroom, site } from "@/lib/data/site";
+import { responsive } from "@/lib/img";
 
 export const metadata: Metadata = {
   title: "Visit & contact",
@@ -66,7 +67,7 @@ export default function ContactPage() {
                   </div>
                   <figure className="tp-visit__photo">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={photo.src} alt={photo.alt} loading="lazy" style={{ objectPosition: "45.3% 44.4%" }} />
+                    <img {...responsive(photo.src, "(min-width: 640px) 11rem, 90vw", 828)} alt={photo.alt} loading="lazy" style={{ objectPosition: "45.3% 44.4%" }} />
                   </figure>
                 </div>
               </section>
