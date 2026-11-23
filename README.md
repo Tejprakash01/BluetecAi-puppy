@@ -82,10 +82,7 @@ npm run typecheck
 
 ## Deploying (Vercel)
 
-1. Push this repo to GitHub.
-2. Go to [vercel.com/new](https://vercel.com/new), import the repo and keep the defaults (framework: Next.js). Click **Deploy**.
-3. The `prebuild` step downloads the media during the build, so the deployed site serves every image from its own domain.
-4. Optional: set `NEXT_PUBLIC_SITE_URL` to your production URL so Open Graph links are absolute.
+LIVE - https://bluetec-ai-puppy.vercel.app
 
 ## Implementation notes
 
